@@ -79,7 +79,18 @@ I also used https://docs.puppet.com/puppet/latest/reference/types/exec.html as a
 
 With these additions the module was complete and I tested the module with
 ```
-sudo puppet agent --test
+$ sudo puppet agent --test
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Caching catalog for rand
+Info: Applying configuration version '1479071833'
+Notice: /Stage[main]/Lamp/Exec[apt-update]/returns: executed successfully
+Notice: /Stage[main]/Lamp/Exec[ufw-allow-http]/returns: executed successfully
+Notice: /Stage[main]/Lamp/Exec[ufw-allow-ssh]/returns: executed successfully
+Notice: /Stage[main]/Lamp/Exec[ufw-allow-https]/returns: executed successfully
+Notice: /Stage[main]/Lamp/Exec[ufw-enable]/returns: executed successfully
+Notice: Finished catalog run in 17.05 seconds
+
 ```
 
 
