@@ -67,7 +67,7 @@ class lamp {
 	}
 
 	file { '/etc/apache2/mods-available/php7.0.conf':
-  	source=>'puppet:///modules/lamp/php7.0.conf',
+  	content=>template("lamp/php7.0.conf.erb"),
 	}
 	
 	file { '/etc/apache2/mods-enabled/php7.0.conf':
@@ -79,11 +79,13 @@ class lamp {
 	service {'apache2':
 	ensure=>"running",
 	enable=>"true",
+	provider => systemd,
 	}
 
 	service { 'mysql':
  	ensure => 'running',
   	enable => 'true',
+	provider => systemd,
 	}
 
 	exec { 'ufw-allow-ssh':
