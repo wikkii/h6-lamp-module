@@ -100,7 +100,7 @@ class lamp {
 	
 	exec { 'ufw-enable':
 	command => "/usr/sbin/ufw enable",
-	require => Exec['ufw-allow-ssh', 'ufw-allow-http'],
+	require => Exec['ufw-allow-ssh', 'ufw-allow-http', 'ufw-allow-https'],
 	}
 	
         #file{'/etc/mysql/pw_created':
