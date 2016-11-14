@@ -106,6 +106,15 @@ note i commented out the exec that sets mysql pasword since the password had alr
 	#require => Service["mysql"],
 	#}
 ```
+Lastly I uploaded the module to git and git hub by copying the puppet folder to the new folder i had created in the beginning.
+```
+$ sudo cp -r /etc/puppet .
+$ git add .
+$ git commit 
+$ git pull
+$ git push
+```
+
 
 ###links/sources
 
