@@ -83,11 +83,13 @@ class lamp {
 	service {'apache2':
 	ensure=>"running",
 	enable=>"true",
+	provider => systemd,
 	}
 
 	service { 'mysql':
  	ensure => 'running',
   	enable => 'true',
+	provider => systemd,
 	}
 
 	exec { 'ufw-allow-ssh':
