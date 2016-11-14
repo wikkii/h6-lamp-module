@@ -58,22 +58,26 @@ class lamp {
   	ensure => 'link',
   	target => '../mods-available/userdir.conf',
 	notify => Service['apache2'],
+	require => Package['apache2'],
 	}
 
 	file { '/etc/apache2/mods-enabled/userdir.load':
   	ensure => 'link',
   	target => '../mods-available/userdir.load',
 	notify => Service["apache2"],
+	require => Package['apache2'],
 	}
 
 	file { '/etc/apache2/mods-available/php7.0.conf':
   	source=>'puppet:///modules/lamp/php7.0.conf',
+	require => Package['apache2'],
 	}
 	
 	file { '/etc/apache2/mods-enabled/php7.0.conf':
   	ensure => 'link',
  	target => '../mods-available/php7.0.conf',
 	notify => Service["apache2"],
+	require => Package['apache2'],
 	}
 
 	service {'apache2':
