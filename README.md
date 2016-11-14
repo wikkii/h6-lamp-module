@@ -76,8 +76,8 @@ exec as an example
         }
 ```
 I also used https://docs.puppet.com/puppet/latest/reference/types/exec.html as a reference.
-
-With these additions the module was complete and I tested the module with
+ 
+With these additions the module was complete and I tested the module with:
 ```
 $ sudo puppet agent --test
 Info: Retrieving pluginfacts
@@ -92,7 +92,20 @@ Notice: /Stage[main]/Lamp/Exec[ufw-enable]/returns: executed successfully
 Notice: Finished catalog run in 17.05 seconds
 
 ```
-
+note i commented out the exec that sets mysql pasword since the password had already been set and it would give the same error that I have explained [here](https://vesalinux.wordpress.com/2016/11/06/h4-installation-module-for-some-fav-programs-and-their-settings/) near the end.
+```
+        #file{'/etc/mysql/pw_created':
+        #ensure=> 'present',
+        #content => "file is created to stop setting mysql root password a
+        #second time\n",
+        #}
+	
+	#exec {'set-mysql-pw':
+	#unless => '/usr/bin/test -f /etc/mysql/pw-created',
+	#command => "/usr/bin/mysqladmin -u root password $mysqlpw",
+	#require => Service["mysql"],
+	#}
+```
 
 ###links/sources
 
