@@ -93,7 +93,7 @@ class lamp {
   	enable => 'true',
 	provider => systemd,
 	}
-
+	#todo add onlyif/unless clauses to ufw exec or use some other resource
 	exec { 'ufw-allow-ssh':
   	command => "/usr/sbin/ufw allow ssh",
 	}
