@@ -32,6 +32,7 @@ class lamp {
 	package { 'libapache2-mod-php':
   	#require => Exec['apt-update'],
 	ensure => 'installed',
+	require => Package['apache2'], #may not work without this
 	}
 	package { 'python':
  	#require => Exec['apt-update'],
@@ -46,12 +47,12 @@ class lamp {
 	ensure => 'installed',
 	}
 	package { 'php-mysql':
-  	#ensure => 'installed',
-	require => Exec['apt-update'],
+  	ensure => 'installed',
+	#require => Exec['apt-update'],
 	}
 	package { 'htop':
-  	#ensure => 'installed',
-	require => Exec['apt-update'],
+  	ensure => 'installed',
+	#require => Exec['apt-update'],
 	}
 	
 	file { '/etc/apache2/mods-enabled/userdir.conf':
