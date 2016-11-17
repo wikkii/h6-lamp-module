@@ -71,7 +71,6 @@ class lamp {
 
 	file { '/etc/apache2/mods-available/php7.0.conf':
   	content=>template("lamp/php7.0.conf.erb"),
-  	source=>'puppet:///modules/lamp/php7.0.conf',
 	notify => Service['apache2'],
 	require => Package['apache2'],
 	}
@@ -118,6 +117,7 @@ class lamp {
         #second time\n",
         #}
 	
+	# This exec only works if the mysql password is empty, as is the case when puppet first installs mysql.
 	#exec {'set-mysql-pw':
 	#unless => '/usr/bin/test -f /etc/mysql/pw-created',
 	#command => "/usr/bin/mysqladmin -u root password $mysqlpw",
