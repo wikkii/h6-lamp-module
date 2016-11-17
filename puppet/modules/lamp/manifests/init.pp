@@ -1,56 +1,56 @@
 class lamp {
-	exec {'apt-update':
-	command => '/usr/bin/apt-get update'
-	}
+	#exec {'apt-update':
+	#command => '/usr/bin/apt-get update'
+	#}
 	
 	$mysqlpw = "pwerman9222!"
 		
 	package { 'ssh':
-	require => Exec['apt-update'],
+	#require => Exec['apt-update'],
   	ensure => 'installed',
 	}
 	package { 'munin':
-  	require => Exec['apt-update'],
+  	#require => Exec['apt-update'],
 	ensure => 'installed',
 	}
 	package {'apache2':
-	require => Exec['apt-update'],
+	#require => Exec['apt-update'],
 	ensure => 'installed',
 	}
 	package { 'mysql-server':
- 	require => Exec['apt-update'],
+ 	#require => Exec['apt-update'],
 	ensure => 'installed',
 	}
 	package { 'mysql-client':
-	require => Exec['apt-update'],
+	#require => Exec['apt-update'],
  	ensure => 'installed',
 	}
 	package { 'php':
- 	require => Exec['apt-update'],
+ 	#require => Exec['apt-update'],
 	ensure => 'installed',
 	}
 	package { 'libapache2-mod-php':
-  	require => Exec['apt-update'],
+  	#require => Exec['apt-update'],
 	ensure => 'installed',
 	}
 	package { 'python':
- 	require => Exec['apt-update'],
-	 ensure => 'installed',
+ 	#require => Exec['apt-update'],
+	ensure => 'installed',
 	}
 	package { 'gedit':
-  	require => Exec['apt-update'],
+  	#require => Exec['apt-update'],
 	ensure => 'installed',
 	}
 	package { 'curl':
- 	require => Exec['apt-update'],
+ 	#require => Exec['apt-update'],
 	ensure => 'installed',
 	}
 	package { 'php-mysql':
-  	ensure => 'installed',
+  	#ensure => 'installed',
 	require => Exec['apt-update'],
 	}
 	package { 'htop':
-  	ensure => 'installed',
+  	#ensure => 'installed',
 	require => Exec['apt-update'],
 	}
 	
